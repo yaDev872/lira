@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FutureTech Robotics Academy</title>
+    <title>L.I.R.A - Libyan International Robot & AI Academy</title>
     <style>
         /* --- CSS STYLES --- */
         :root {
-            --primary: #007bff; /* Tech Blue */
+            /* Updated colors based on LIRA Logo (Light Blue/Cyan) */
+            --primary: #00AEEF; /* LIRA Cyan Blue */
             --dark: #1a1a2e;    /* Deep Navy */
-            --light: #f4f4f9;   /* Off White */
-            --accent: #00d4ff;  /* Neon Cyan */
+            --light: #f8f9fa;   /* Off White */
+            --accent: #FFD700;  /* Gold for Awards/Olympiad */
+            --text-grey: #555;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -28,18 +30,21 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 4px solid var(--primary);
         }
-        nav h1 { font-size: 1.5rem; color: var(--accent); }
+        nav h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
+        nav h1 span { color: var(--primary); }
         nav ul { list-style: none; display: flex; gap: 20px; }
         nav a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
+        nav a:hover { color: var(--primary); }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            /* Tech background image */
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            height: 90vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -48,135 +53,188 @@
             color: white;
             padding: 0 20px;
         }
-        .hero h2 { font-size: 3rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; }
+        .hero h2 { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.2; }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; color: #ddd; }
         .btn {
             background: var(--primary);
             color: white;
-            padding: 12px 30px;
+            padding: 15px 35px;
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
             cursor: pointer;
             text-decoration: none;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
         }
-        .btn:hover { background: var(--accent); color: var(--dark); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 174, 239, 0.6); }
 
         /* Sections General */
         section { padding: 80px 10%; }
-        h3 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--dark); }
+        h3 { text-align: center; font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
+        .section-subtitle { text-align: center; margin-bottom: 60px; color: var(--text-grey); max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* Stats/Accomplishments */
-        .stats { background: var(--dark); color: white; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; }
-        .stat-box h4 { font-size: 3rem; color: var(--accent); }
-        .stat-box p { font-size: 1.2rem; margin-top: 10px; }
+        /* Stats Bar */
+        .stats { background: white; padding: 40px 10%; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); position: relative; top: -50px; border-radius: 10px; width: 90%; margin: 0 auto; }
+        .stat-box h4 { font-size: 2.5rem; color: var(--primary); margin-bottom: 5px; }
+        .stat-box p { font-size: 1rem; color: var(--text-grey); font-weight: bold; }
 
-        /* Programs (Grid) */
+        /* Student Programs (Grid) */
         .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-        .card h4 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
+        .card { background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; transition: 0.3s; border-top: 5px solid var(--primary); }
+        .card:hover { transform: translateY(-10px); }
+        .card h4 { font-size: 1.5rem; margin-bottom: 15px; color: var(--dark); }
+        .age-badge { background: var(--light); padding: 5px 15px; border-radius: 20px; color: var(--primary); font-weight: bold; display: inline-block; margin-bottom: 15px; }
 
-        /* Corporate Section */
-        .corporate { background: #e9ecef; }
-        .corp-content { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .corp-text { flex: 1; }
-        .corp-image { flex: 1; height: 300px; background: #ddd; display: flex; align-items: center; justify-content: center; border-radius: 10px; overflow: hidden;}
-        .corp-image img { width: 100%; height: 100%; object-fit: cover; }
+        /* Services for Schools/Corps */
+        .services-section { background-color: #eef2f5; }
+        .service-row { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
+        .service-row:nth-child(even) { flex-direction: row-reverse; } /* Zig-zag layout */
+        .service-text { flex: 1; }
+        .service-text h4 { font-size: 2rem; margin-bottom: 20px; color: var(--dark); }
+        .service-text ul { list-style: none; margin-top: 20px; }
+        .service-text ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .service-img { flex: 1; height: 350px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .service-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Competition Section */
+        .competition { background: var(--dark); color: white; text-align: center; }
+        .competition h3 { color: white; }
+        .comp-icons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .comp-item { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; width: 180px; }
+        .comp-item strong { color: var(--primary); display: block; margin-bottom: 5px; }
 
         /* Footer */
-        footer { background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: auto; }
-        footer p { margin-bottom: 10px; }
+        footer { background: #111; color: #aaa; text-align: center; padding: 50px 20px; margin-top: auto; }
+        footer strong { color: white; }
+        footer a { color: var(--primary); text-decoration: none; }
         
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero h2 { font-size: 2rem; }
-            nav ul { display: none; } /* Simplified for mobile demo */
-            .corp-content { flex-direction: column; }
+            .hero h2 { font-size: 2.2rem; }
+            .stats { flex-direction: column; gap: 30px; top: 0; width: 100%; }
+            .service-row, .service-row:nth-child(even) { flex-direction: column; }
+            .service-img { width: 100%; height: 250px; }
+            nav ul { display: none; } 
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <h1>RoboAcademy</h1>
+        <h1>L.I.R.A <span>Academy</span></h1>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#corporate">Partners</a></li>
+            <li><a href="#programs">Courses</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#olympiad">Olympiad</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <header class="hero" id="home">
-        <h2>Building the Future,<br>One Bot at a Time.</h2>
-        <p>The premier Robotics Academy empowering students with coding skills and engineering mindsets. Home of the National Robotic Competition.</p>
-        <a href="#contact" class="btn">Join Our Academy</a>
+        <h2>Libyan International Robot<br>& AI Academy</h2>
+        <p>Empowering students to innovate. We are a leading educational institution certified by the Arab Robotics Association.</p>
+        <a href="#contact" class="btn">Start Your Journey</a>
     </header>
 
-    <section class="stats" id="achievements">
-        <div class="stat-box">
-            <h4>2</h4>
-            <p>National Robotic<br>Competitions Hosted</p>
-        </div>
-        <div class="stat-box">
-            <h4>500+</h4>
-            <p>Students<br>Certified</p>
-        </div>
-        <div class="stat-box">
-            <h4>100%</h4>
-            <p>Hands-On<br>Learning</p>
+    <section style="padding: 0;">
+        <div class="stats">
+            <div class="stat-box">
+                <h4>6000+</h4>
+                <p>Students Impacted</p>
+            </div>
+            <div class="stat-box">
+                <h4>Agents</h4>
+                <p>For Arab Robotics Association</p>
+            </div>
+            <div class="stat-box">
+                <h4>1st</h4>
+                <p>Digital Fab Lab in Region</p>
+            </div>
         </div>
     </section>
 
     <section id="programs">
-        <h3>Our Programs</h3>
+        <h3>Our Training Programs</h3>
+        <p class="section-subtitle">Comprehensive coding and robotics curriculum divided by age group.</p>
+        
         <div class="programs-grid">
             <div class="card">
-                <h4>Junior Coders</h4>
-                <p>Perfect for ages 7-10. We introduce logic and creativity using Scratch and block-based programming. Kids build their first games and animations.</p>
+                <span class="age-badge">Ages 5 - 7</span>
+                <h4>Pre-Junior</h4>
+                <p>An exciting introduction to technology. Kids explore logic and creativity through fun, hands-on activities tailored for early learners.</p>
             </div>
             <div class="card">
-                <h4>Robotics Engineering</h4>
-                <p>For ages 11-15. Hands-on construction using Arduino and LEGO Mindstorms. Students learn mechanics, sensors, and automation.</p>
+                <span class="age-badge">Ages 8 - 12</span>
+                <h4>Junior Level</h4>
+                <p>Students dive deeper into block-based coding and build their first functional robots. Focus on mechanics and problem-solving.</p>
             </div>
             <div class="card">
-                <h4>Competition Squad</h4>
-                <p>Advanced training for students preparing for National and International Olympiads. Strategic coding and precision engineering.</p>
+                <span class="age-badge">Ages 13 - 19</span>
+                <h4>Senior Level</h4>
+                <p>Advanced engineering and programming (Python/C++). Preparation for national competitions and complex AI projects.</p>
             </div>
         </div>
     </section>
 
-    <section class="corporate" id="corporate">
-        <h3>Corporate Partnerships</h3>
-        <div class="corp-content">
-            <div class="corp-text">
-                <h4>Collaborate with Us</h4>
-                <p>We don't just teach kids; we partner with industry leaders to foster the next generation of talent.</p>
-                <br>
+    <section class="services-section" id="services">
+        <h3>Services for Schools & Institutions</h3>
+        
+        <div class="service-row">
+            <div class="service-text">
+                <h4>Integrated Robotics Labs</h4>
+                <p>We equip schools with the latest technology to create interactive learning environments.</p>
                 <ul>
-                    <li>✅ <strong>Sponsor a Competition:</strong> Gain visibility by sponsoring our National events.</li>
-                    <li>✅ <strong>CSR Initiatives:</strong> Partner with us to bring robotics to under-served communities.</li>
-                    <li>✅ <strong>Tech Showcases:</strong> Demonstate your technology at our academy events.</li>
+                    <li>✅ <strong>Full Setup:</strong> Furniture, electronics, and robotics kits.</li>
+                    <li>✅ <strong>Curriculum:</strong> We provide the teaching material.</li>
+                    <li>✅ <strong>Training:</strong> Professional teacher training included.</li>
                 </ul>
-                <br>
-                <a href="#contact" class="btn" style="background-color: #333;">Partner With Us</a>
             </div>
-            <div class="corp-image">
-                <img src="https://images.unsplash.com/photo-1517055729445-37545e8841da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Robotics Competition">
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Robotics Lab">
             </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-text">
+                <h4>Educational Tours & Fab Lab</h4>
+                <p>Schools can visit L.I.R.A for field trips to explore our state-of-the-art Digital Fabrication Lab.</p>
+                <ul>
+                    <li>✅ <strong>3D Printing:</strong> Watch designs come to life.</li>
+                    <li>✅ <strong>Laser Cutting:</strong> Precision engineering demonstrations.</li>
+                    <li>✅ <strong>Electronics Lab:</strong> Hands-on physics experiments.</li>
+                </ul>
+            </div>
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1563770095-513639720ed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="3D Printing">
+            </div>
+        </div>
+    </section>
+
+    <section class="competition" id="olympiad">
+        <h3>Arab Artificial Intelligence Olympiad</h3>
+        <p style="max-width: 600px; margin: 0 auto; color: #ddd;">We prepare students for the prestigious Arab AI Olympiad in 5 key technical fields.</p>
+        
+        <div class="comp-icons">
+            <div class="comp-item"><strong>01</strong>Programming</div>
+            <div class="comp-item"><strong>02</strong>Machine Learning</div>
+            <div class="comp-item"><strong>03</strong>Computer Vision</div>
+            <div class="comp-item"><strong>04</strong>Embedded Systems</div>
+            <div class="comp-item"><strong>05</strong>Cyber Security</div>
         </div>
     </section>
 
     <footer id="contact">
-        <h3>Contact Us</h3>
-        <p>Ready to start the journey? Get in touch.</p>
-        <p><strong>Email:</strong> info@roboacademy.com</p>
-        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-        <p><strong>Address:</strong> 123 Innovation Drive, Tech City</p>
+        <h3>Contact L.I.R.A</h3>
+        <p>Visit us to see the future of education.</p>
         <br>
-        <p>&copy; 2024 RoboAcademy. All rights reserved.</p>
+        <p><strong>📞 Phone 1:</strong> 093 477 2411</p>
+        <p><strong>📞 Phone 2:</strong> 091 556 2440</p>
+        <p><strong>🌐 Facebook:</strong> <a href="https://www.facebook.com/Robotic.Libyan.Academy/">/Robotic.Libyan.Academy</a></p>
+        <br>
+        <p>&copy; 2024 Libyan International Robot & AI Academy. All Rights Reserved.</p>
     </footer>
 
 </body>
