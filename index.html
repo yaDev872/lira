@@ -7,11 +7,10 @@
     <style>
         /* --- CSS STYLES --- */
         :root {
-            /* Updated colors based on LIRA Logo (Light Blue/Cyan) */
             --primary: #00AEEF; /* LIRA Cyan Blue */
             --dark: #1a1a2e;    /* Deep Navy */
             --light: #f8f9fa;   /* Off White */
-            --accent: #FFD700;  /* Gold for Awards/Olympiad */
+            --accent: #FFD700;  /* Gold */
             --text-grey: #555;
         }
 
@@ -21,9 +20,9 @@
 
         /* Navigation */
         nav {
-            background: var(--dark);
-            color: white;
-            padding: 1rem 5%;
+            background: white; /* Changed to white to make the logo pop */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,15 +31,32 @@
             z-index: 1000;
             border-bottom: 4px solid var(--primary);
         }
-        nav h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
-        nav h1 span { color: var(--primary); }
+        
+        /* Logo Styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo-container img {
+            height: 60px; /* Adjusts logo size */
+            width: auto;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+        .logo-text span { color: var(--primary); }
+
         nav ul { list-style: none; display: flex; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a { color: var(--dark); text-decoration: none; font-weight: bold; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
         /* Hero Section */
         .hero {
-            /* Tech background image */
             background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -90,12 +106,12 @@
         /* Services for Schools/Corps */
         .services-section { background-color: #eef2f5; }
         .service-row { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
-        .service-row:nth-child(even) { flex-direction: row-reverse; } /* Zig-zag layout */
+        .service-row:nth-child(even) { flex-direction: row-reverse; } 
         .service-text { flex: 1; }
         .service-text h4 { font-size: 2rem; margin-bottom: 20px; color: var(--dark); }
         .service-text ul { list-style: none; margin-top: 20px; }
         .service-text ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .service-img { flex: 1; height: 350px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .service-img { flex: 1; height: 350px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1); background-color: #ddd; }
         .service-img img { width: 100%; height: 100%; object-fit: cover; }
 
         /* Competition Section */
@@ -116,14 +132,18 @@
             .stats { flex-direction: column; gap: 30px; top: 0; width: 100%; }
             .service-row, .service-row:nth-child(even) { flex-direction: column; }
             .service-img { width: 100%; height: 250px; }
-            nav ul { display: none; } 
+            nav { flex-direction: column; gap: 10px; }
+            nav ul { display: flex; gap: 15px; font-size: 0.9rem; } 
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <h1>L.I.R.A <span>Academy</span></h1>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="LIRA Logo">
+            <div class="logo-text">L.I.R.A<br><span>Academy</span></div>
+        </a>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#programs">Courses</a></li>
@@ -193,7 +213,7 @@
                 </ul>
             </div>
             <div class="service-img">
-                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Robotics Lab">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Robotics Lab">
             </div>
         </div>
 
@@ -208,7 +228,7 @@
                 </ul>
             </div>
             <div class="service-img">
-                <img src="https://images.unsplash.com/photo-1563770095-513639720ed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="3D Printing">
+                <img src="https://images.unsplash.com/photo-1631541909061-71e349d1f203?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="3D Printing">
             </div>
         </div>
     </section>
@@ -234,7 +254,7 @@
         <p><strong>📞 Phone 2:</strong> 091 556 2440</p>
         <p><strong>🌐 Facebook:</strong> <a href="https://www.facebook.com/Robotic.Libyan.Academy/">/Robotic.Libyan.Academy</a></p>
         <br>
-        <p>&copy; 2024 Libyan International Robot & AI Academy. All Rights Reserved.</p>
+        <p>&copy; 2026 Libyan International Robot & AI Academy. All Rights Reserved.</p>
     </footer>
 
 </body>
