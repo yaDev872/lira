@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأكاديمية الليبية للروبوت | منصة صناع المستقبل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --secondary-orange: #f39c12;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--light-bg); }
+
+        /* Navigation */
+        header { background: var(--primary-blue); color: white; padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        nav a { color: white; text-decoration: none; margin-right: 20px; transition: 0.3s; }
+        nav a:hover { color: var(--secondary-orange); }
+
+        /* Hero Section */
+        .hero { 
+            height: 80vh; 
+            background: linear-gradient(45deg, rgba(0,51,102,0.8), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; }
+
+        /* Sections General */
+        section { padding: 80px 10%; }
+        h2.section-title { text-align: center; margin-bottom: 50px; color: var(--primary-blue); font-size: 2.5rem; position: relative; }
+        h2.section-title::after { content: ''; width: 80px; height: 4px; background: var(--secondary-orange); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Courses Grid */
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .course-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .course-card:hover { transform: translateY(-10px); }
+        .course-img { height: 200px; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary-blue); }
+        .course-info { padding: 20px; }
+        .course-info h3 { margin-bottom: 10px; color: var(--primary-blue); }
+
+        /* Achievements (Timeline Style) */
+        .achievements { background: var(--white); }
+        .stat-box { display: flex; justify-content: space-around; text-align: center; margin-top: 40px; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--secondary-orange); }
+
+        /* Contact Form */
+        .contact-container { display: flex; gap: 50px; flex-wrap: wrap; }
+        .contact-form { flex: 2; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { background: var(--secondary-orange); color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; }
+
+        footer { background: var(--primary-blue); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><i class="fas fa-robot"></i> الأكاديمية الليبية للروبوت</div>
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#courses">الدورات</a>
+        <a href="#achievements">الإنجازات</a>
+        <a href="#contact">التسجيل</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h1>نصنع مهندسي المستقبل</h1>
+    <p>الأكاديمية الليبية للروبوت هي بوابتكم لدخول عالم الذكاء الاصطناعي والبرمجة بأحدث المناهج العالمية.</p>
+    <a href="#contact" class="btn">اشترك الآن</a>
+</section>
+
+<section id="courses">
+    <h2 class="section-title">برامجنا التدريبية</h2>
+    <div class="courses-grid">
+        <div class="course-card">
+            <div class="course-img"><i class="fas fa-microchip"></i></div>
+            <div class="course-info">
+                <h3>دورة الـ Arduino</h3>
+                <p>تعلم أساسيات الإلكترونيات وكيفية برمجة اللوحات الذكية لبناء مشاريع تفاعلية.</p>
+            </div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><i class="fas fa-cubes"></i></div>
+            <div class="course-info">
+                <h3>LEGO Robotics</h3>
+                <p>مخصصة للأطفال لتعلم بناء وبرمجة الروبوتات باستخدام تقنيات LEGO العالمية.</p>
+            </div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><i class="fas fa-code"></i></div>
+            <div class="course-info">
+                <h3>برمجة Scratch</h3>
+                <p>تطوير التفكير المنطقي عبر تصميم الألعاب والقصص التفاعلية بطريقة ممتعة.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="achievements" class="achievements">
+    <h2 class="section-title">مسيرتنا وإنجازاتنا</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">نفخر بتمثيل ليبيا في المحافل الدولية والمحلية، وتحقيق مراكز متقدمة في أولمبياد الروبوت العالمي (WRO).</p>
+    <div class="stat-box">
+        <div class="stat-item"><h3>+500</h3><p>طالب متخرج</p></div>
+        <div class="stat-item"><h3>+10</h3><p>مسابقات دولية</p></div>
+        <div class="stat-item"><h3>+15</h3><p>دورة تخصصية</p></div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">سجل طفلك معنا</h2>
+    <div class="contact-container">
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="اسم ولي الأمر" required>
+                <input type="text" placeholder="اسم الطالب وعمره" required>
+                <input type="email" placeholder="البريد الإلكتروني">
+                <input type="tel" placeholder="رقم الهاتف (واتساب)">
+                <textarea rows="5" placeholder="أي استفسار إضافي؟"></textarea>
+                <button type="submit" class="btn">إرسال الطلب</button>
+            </form>
+        </div>
+        <div style="flex: 1;">
+            <h3>تواصل مباشر</h3>
+            <p><i class="fab fa-whatsapp"></i> عبر الواتساب: 09XXXXXXXX</p>
+            <p><i class="fas fa-map-marker-alt"></i> مقرنا: ليبيا - (أضف العنوان بالتحديد)</p>
+            <br>
+            <h3>تابعنا</h3>
+            <div style="font-size: 2rem; color: var(--primary-blue);">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2024 للأكاديمية الليبية للروبوت</p>
+</footer>
+
+</body>
+</html>
